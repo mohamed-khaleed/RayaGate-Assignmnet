@@ -1,0 +1,14 @@
+
+body {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  background-color:#f7fbfb;
+}
+.d-header{
+  background: linear-gradient(to right, rgba(10, 92, 91, 0.9), rgba(0, 0, 0, 0.8)), url("../src/assets/images/book2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
