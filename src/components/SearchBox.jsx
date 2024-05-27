@@ -1,7 +1,7 @@
-function SearchBox() {
+function SearchBox({ searchQuery, setSearchQuery }) {
   return (
-    <div className="bg-light-sky-blue w-[60%] flex justify-between p-4 rounded">
-      <div className="relative flex h-full w-[80%] items-center overflow-hidden  bg-light-sky-blue focus-within:shadow-lg">
+    <div className="bg-light-sky-blue w-full flex flex-col p-4 rounded md:flex-row md:w-[60%]">
+      <div className="relative flex h-full w-full items-center overflow-hidden bg-light-sky-blue focus-within:shadow-lg md:w-[80%]">
         <div className="grid h-full w-12 place-items-center text-dark-green">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -23,10 +23,14 @@ function SearchBox() {
           className="peer h-full w-full pr-2 text-sm bg-light-sky-blue text-gray-700 outline-none"
           type="text"
           id="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search something.."
         />
       </div>
-      <button className="bg-dark-green hover:bg-light-green text-white font-bold py-3 px-12 capitalize rounded">search</button>
+      <button className="bg-dark-green mt-4 py-3 px-6 text-white font-bold capitalize rounded md:mt-0 md:ml-4 md:px-12 hover:bg-light-green">
+        search
+      </button>
     </div>
   );
 }

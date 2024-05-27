@@ -1,12 +1,12 @@
 import SearchBox from "./SearchBox";
 
-function Header() {
+function Header({ searchQuery, setSearchQuery }) {
   return (
-    <header className="bg-dark-green flex h-[70vh] flex-col items-center justify-center gap-20">
-      <h1 className="text-light-sky-blue text-8xl leading-20 font-extrabold capitalize text-center">
-        find them most <br/> exciting posts ever
+    <header className="bg-dark-green flex flex-col items-center justify-center gap-10 p-4 md:gap-20 md:h-[70vh]">
+      <h1 className="text-light-sky-blue text-4xl leading-10 font-extrabold capitalize text-center md:text-8xl md:leading-20">
+        find the most <br /> exciting posts ever
       </h1>
-      <SearchBox />
+      <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
     </header>
   );
 }
