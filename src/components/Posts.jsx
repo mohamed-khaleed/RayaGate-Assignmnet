@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import Pagination from "./Pagination";
-
+import { Link } from 'react-router-dom';
+import Header from "./Header";
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -31,11 +32,12 @@ function Posts() {
   }, []);
  
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
-    <section className="py-16 ">
+    <>
+      <Header/>
+      <section className="py-16 ">
       <main className="p-12">
         <h2 className="text-dark-green mb-16 text-center text-5xl font-semibold">
           find the <span className="text-medium-green">posts list</span>
@@ -72,9 +74,9 @@ function Posts() {
                 </h3>
                 <p className="text-light-grey">{post.body}</p>
                 {/* <button className="bg-dark-green w-[150px] hover:bg-light-green text-white font-bold py-2 px-5 capitalize rounded">see more</button> */}
-                <a
-                  href="#"
-                  className="text-dark-green underline underline-offset-4 flex gap-1 w-[150px] hover:text-medium-green font-bold py-2  capitalize rounded"
+                <Link
+                  to={`/post/${post.id}`}
+                  className="text-dark-green underline underline-offset-4 flex gap-1 w-[150px] hover:text-medium-green font-bold py-2 capitalize rounded"
                 >
                   see more 
                   <span>
@@ -96,7 +98,7 @@ function Posts() {
                       <path d="M13 6l6 6" />
                     </svg>
                   </span>
-                </a>
+                </Link>
               </div>
             ))}
           </div>
@@ -108,7 +110,9 @@ function Posts() {
         currentPage={currentPage}
       />
       </main>
-    </section>
+      </section>
+    </>
+  
   );
 }
 
