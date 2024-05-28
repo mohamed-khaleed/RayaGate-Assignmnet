@@ -1,3 +1,4 @@
+import React from 'react';
 function LoadingPage() {
   return (
     <div className="h-screen bg-dark-green flex justify-center items-center transition-opacity ">

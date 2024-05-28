@@ -1,4 +1,8 @@
-function SearchBox({ searchQuery, setSearchQuery }) {
+import { useContext } from "react";
+import { SearchContext } from '../context/SearchContext';
+import React from 'react';
+function SearchBox() {
+  const { searchQuery, setSearchQuery } = useContext(SearchContext);
   return (
     <div className="bg-light-sky-blue w-full flex flex-col p-4 rounded md:flex-row md:w-[60%]">
       <div className="relative flex h-full w-full items-center overflow-hidden bg-light-sky-blue focus-within:shadow-lg md:w-[80%]">
@@ -28,7 +32,7 @@ function SearchBox({ searchQuery, setSearchQuery }) {
           placeholder="Search something.."
         />
       </div>
-      <button className="bg-dark-green mt-4 py-3 px-6 text-white font-bold capitalize rounded md:mt-0 md:ml-4 md:px-12 hover:bg-light-green">
+      <button aria-label="search button" className="bg-dark-green mt-4 py-3 px-6 text-white font-bold capitalize rounded md:mt-0 md:ml-4 md:px-12 hover:bg-light-green">
         search
       </button>
     </div>
