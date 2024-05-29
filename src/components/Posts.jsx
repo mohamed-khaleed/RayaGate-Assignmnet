@@ -14,6 +14,7 @@ function Posts() {
     const controller = new AbortController();
     const fetchPosts = async () => {
       try {
+        
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/posts",
           { signal: controller.signal },
@@ -23,12 +24,12 @@ function Posts() {
         }
         const data = await response.json();
         setPosts(data);
+        setLoading(false);
       } catch (error) {
         if (error.name !== "AbortError") {
           setError(error.message);
+          setLoading(false);
         }
-      } finally {
-        setLoading(false);
       }
     };
 

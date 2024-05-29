@@ -36,11 +36,11 @@ function PostDetailsPage() {
         }
         const commentsData = await commentsResponse.json();
         setComments(commentsData);
+        setLoading(false);
       } catch (error) {
         setError(error);
-      } finally {
         setLoading(false);
-      }
+      } 
     };
     fetchPostDetails();
   }, [id]);
